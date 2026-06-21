@@ -1,6 +1,6 @@
 # Tarea 2 – Comparación de Algoritmos
 ---
-Nombre: Gabriel Toro Varela - 21486437-1 - P200
+Nombre: Gabriel Toro Varela - 21486437-1 - 202204557-4 - P200
 
 ---
 Se aconseja abrir este README en github para una mejor visibilidad.
@@ -74,21 +74,35 @@ La finalidad es analizar rendimiento y escalabilidad en calidad de respuesta y t
 
 ## Implementacion
 
-### 🗂️ Fuerza Bruta
+### 🔢 Fuerza Bruta
 
 `BruteForce` de toda la vida, utilizando como `Backtracking` las 2 restricciones del ejercicio.
 
-### 🗂️ Programacion Dinamica
+### 🔢 Programacion Dinamica
 
 Se utilizan Tablas DP de tiempo y energía, reutilizando soluciones parciales.
 
-### 🗂️ Greedy 1
+### 🧩 Greedy 1
 
 `Greedy` elige la mejor opcion en una seleccion iterativa por mejor score = calidad/precio.
 
-### 🔢 Greedy 2
+Para cada anime, G1 revisa las opciones que tiene, ver 0, 1, 2,...,n capitulos (consecutivos), descarta las que rompen restricciones (M,E), y luego para cada opcion calcula:
+
+`Score` = $\frac{\text{v}}{\frac{t}{M} + \frac{c}{E}}$
+
+luego elige la opcion con mejor `Score`, añade v a la solucion y pasa al siguiente anime en la lista.
+
+### 🧩 Greedy 2
 
 `Greedy` basado en ganancia marginal por expansión incremental de la solución.
+
+Elige comparando opciones, evalua que pasa si agrego o no una opcion a la solucion, calculando
+
+$\Delta \text{satisfacción} = \text{nuevo} - \text{actual}$
+
+para cada opcion, luego añade v a la solucion y pasa al siguiente anime en la lista.
+
+- Diferencia con G1: se basa en mejoras incrementales de la situacion actual, en vez de elegir la mejor relacion global beneficio/costo
 
 ## Programa principal
 
